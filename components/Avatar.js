@@ -13,10 +13,23 @@ const User = styled.Image`
     border-radius: 20px;
 `
 
-const Avatar = ({source}) => {
+const UserActive = styled.View`
+    width: 15px;
+    height: 15px;
+    border-radius: 8px;
+    background: #4bcb1f;
+    position: absolute;
+    bottom: -2;
+    right: -2;
+    border-width: 2px;
+    border-color: #ffffff;
+`
+
+const Avatar = ({source, online}) => {
     return (
         <Container>
             <User source={source}/>
+            {online && <UserActive/>}
         </Container>
     );
 }

@@ -50,37 +50,46 @@ const Separation = styled.View`
     height: 26px;
     background: #f0f0f0;
 `
+const BottomDivider = styled.View`
+    width: 100%;
+    height: 9px;
+    background: #f0f2f5;
+`
 
 function ToolBar(){
     return(
-        <Container>
-            <Row>
-                <Avatar source={user3}/>
-                <Input placeholder="O que você está pensando?"/>
-            </Row>
-            <Divider/>
+        <>
+            <Container>
+                <Row>
+                    <Avatar source={user3}/>
+                    <Input placeholder="O que você está pensando?"/>
+                </Row>
+                <Divider/>
 
-            <Row>
-                <Menu>
-                    <Ionicons name="ios-videocam" size={22} color="#f44"/>
-                    <MenuText>
-                        Ao Vivo
-                    </MenuText>
-                </Menu>
-                <Separation/>
+                <Row>
+                    <Menu>
+                        <Ionicons name="ios-videocam" size={22} color="#f44"/>
+                        <MenuText>
+                            Ao Vivo
+                        </MenuText>
+                    </Menu>
+                    <Separation/>
 
-                <Menu>
-                    <MaterialIcons name="photo-size-select-actual" size={20} color="#4caf50"/>
-                    <MenuText>Foto</MenuText>
-                </Menu>
-                
-                <Menu>
-                    <MaterialCommunityIcons name="video-plus" size={20} color="#e141cf"/>
-                    <MenuText>Sala</MenuText>
-                </Menu>
-            </Row>
-        </Container>
-    )
-}
+                    <Menu>
+                        <MaterialIcons name="photo-size-select-actual" size={20} color="#4caf50"/>
+                        <MenuText>Foto</MenuText>
+                    </Menu>
+                    
+                    <Menu>
+                        <MaterialCommunityIcons name="video-plus" size={20} color="#e141cf"/>
+                        <MenuText>Sala</MenuText>
+                    </Menu>
+                    <Separation/>
+                </Row>
+            </Container>
+            <BottomDivider/>
+        </>
+    );
+};
 
 export default ToolBar;
