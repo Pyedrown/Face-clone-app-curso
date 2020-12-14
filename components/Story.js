@@ -1,97 +1,108 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
-import { AntDesign } from '@expo/vector-icons'
-import Avatar from './Avatar'
-import styled from 'styled-components/native'
+import React from "react";
+import { View } from "react-native";
+import styled from "styled-components/native";
+import { Entypo, AntDesign } from "@expo/vector-icons";
+import Avatar from "./Avatar";
 
 const Container = styled.View`
-    width: 100%;
-    height: 192px;
-    flex-direction: row;
-    align-items: center;
-`
+  flex: 1;
+`;
+const Header = styled.View`
+  height: 50px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding: 0 11px;
+`;
+const Row = styled.View`
+  align-items: center;
+  flex-direction: row;
+`;
+const User = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  color: #222121;
+`;
+const Time = styled.Text`
+  font-size: 12px;
+  color: #747476;
+`;
 
-const Card = styled.View`
-    width: 108px;
-    height: 170px;
-    position: relative;
-    margin-right: 8px;
-`
+const Post = styled.Text`
+  font-size: 14px;
+  color: #222121;
+  line-height: 16px;
+  padding: 0 11px;
+`;
 
-const CardStory = styled.Image`
-    width: 100%;
-    height: 170px;
-    border-radius: 12px;
-`
+const Foto = styled.Image`
+  margin-top: 9px;
+  width: 100%;
+  height: 300px;
+`;
 
-const CardUser = styled.View`
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    background: #ffffff;
-    border-radius: 20px;
-    width: 39px;
-    height: 39px;
-    align-items: center;
-`
+const Footer = styled.View`
+  padding: 0 11px;
+`;
+const FooterCount = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 9px 0;
+`;
+const IconCount = styled.View`
+  background: #1878f3;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+`;
+const TextCount = styled.Text`
+  font-size: 11px;
+  color: #424040;
+`;
 
-const CardFooter = styled.View`
-    width: 100%;
-    position: absolute;
-    bottom: 12;
-    left: 9px;
-`
+const Feed = () => {
+  return (
+    <>
+      <Container>
+        <Header>
+          <Row>
+            <Avatar source={require("../assets/user3.jpg")} />
+            <View style={{ paddingLeft: 10 }}>
+              <User>Christian Castro</User>
+              <Row>
+                <Time>9m</Time>
+                <Entypo name="dot-single" size={12} color="#747476" />
+                <Entypo name="globe" size={10} color="#747476" />
+              </Row>
+            </View>
+          </Row>
+          <Entypo name="dots-three-horizontal" size={15} color="#222121" />
+        </Header>
 
-const Text = styled.Text`
-    font-size: 13px;
-    font-weight: bold;
-    color: #ffffff;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-`
+        <Post>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad laborum ab
+          repellendus a et quo accusamus perspiciatis veniam
+        </Post>
+        <Foto source={require("../assets/post1.jpg")} />
 
-const Story = () => {
-    return(
-        <Container>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} style={{padding: 11}}>
-                <Card>
-                    <CardStory source={require('../assets/user3.jpg')}/>
-                    <CardUser>
-                        <AntDesign name="plus" size={24} color="#1777f2"/>
-                    </CardUser>
-                    <CardFooter>
-                        <Text>
-                            Adicionar Story
-                        </Text>
-                    </CardFooter>
-                </Card>
-                <Card>
-                    <CardStory source={require('../assets/story1.jpg')}/>
-                    <CardUser>
-                        <Avatar source={require('../assets/user1.jpg')}/>
-                    </CardUser>
-                </Card>
-                <Card>
-                    <CardStory source={require('../assets/story2.jpg')}/>
-                    <CardUser>
-                        <Avatar source={require('../assets/user2.jpg')}/>
-                    </CardUser>
-                </Card>
-                <Card>
-                    <CardStory source={require('../assets/story4.jpg')}/>
-                    <CardUser>
-                        <Avatar source={require('../assets/user4.jpg')}/>
-                    </CardUser>
-                </Card>
-                <Card>
-                    <CardStory source={require('../assets/story4.jpg')}/>
-                    <CardUser>
-                        <Avatar source={require('../assets/user4.jpg')}/>
-                    </CardUser>
-                </Card>
-
-            </ScrollView>
-        </Container>
-    );
+        <Footer>
+          <FooterCount>
+            <Row>
+              <IconCount>
+                <AntDesign name="like1" size={12} color="#ffffff" />
+              </IconCount>
+              <TextCount>1254 likes</TextCount>
+            </Row>
+            <TextCount>854 comentários</TextCount>
+          </FooterCount>
+        </Footer>
+      </Container>
+    </>
+  );
 };
 
-export default Story
+export default Feed;
